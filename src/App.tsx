@@ -2,7 +2,8 @@ import React from 'react';
 import Navbar from "./components/Navbar/Navbar";
 import {useFetch} from "./hooks/useFetch";
 import {useAppSelector} from "./hooks/redux";
-
+import Home from "./pages/Home/Home";
+import { BrowserRouter as Router } from "react-router-dom"
 
 
 
@@ -12,9 +13,10 @@ function App() {
 
     console.log(phones)
   return (
-    <div >
+    <Router >
       <Navbar/>
-    </div>
+        <Home/>
+    </Router>
   );
 }
 
