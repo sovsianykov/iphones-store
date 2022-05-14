@@ -1,7 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import phonesReducer from './ducks'
+import phoneDetailSlice from '../pages/Detail/store/ducks'
 const rootReducer = combineReducers({
-   phones: phonesReducer
+   phones: phonesReducer,
+    phoneDetail: phoneDetailSlice
 })
 
 export const setupStore = () => {

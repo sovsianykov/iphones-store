@@ -2,7 +2,9 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: transparent;
+  position: relative;
+  z-index: -1;
+  background: url("./assets/img/carbon_fibre.webp");
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

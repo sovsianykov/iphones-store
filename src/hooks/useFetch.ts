@@ -3,9 +3,9 @@ import {useEffect} from "react";
 import {fetchPhones} from "../store/thunk";
 
 
-export const useFetch = (page:string) =>{
+export const useFetch = (url:string,callback:any) =>{
     const dispatch = useAppDispatch();
     useEffect(() => {
-       dispatch(fetchPhones(page))
-    },[dispatch,page])
+       dispatch(callback(url))
+    },[dispatch,url])
 }

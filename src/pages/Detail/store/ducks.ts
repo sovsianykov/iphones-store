@@ -1,0 +1,33 @@
+import { createSlice } from '@reduxjs/toolkit';
+import {fetchPhoneDetail} from "./thunks";
+import {PhoneDetailState} from "../models";
+
+const initialState: PhoneDetailState = {
+    status: false,
+    data: {},
+    loading: false,
+    error: '',
+};
+
+const phoneDetailSlice = createSlice({
+    name: 'phoneDetail',
+    initialState,
+    reducers: {},
+    extraReducers: (builder) =>{
+        builder.addCase(fetchPhoneDetail.pending,(state)=>{
+            state.loading = true;
+
+        })
+        builder.addCase(fetchPhoneDetail.fulfilled,(state,action)=>{
+            state.status = true
+            state.loading = false
+            state.data = action.payload
+        })
+        builder.addCase(fetchPhoneDetail.rejected,(state)=>{
+            state.loading = false
+            state.error =  'something vent wrong'
+        })
+    }
+});
+
+export default phoneDetailSlice.reducer

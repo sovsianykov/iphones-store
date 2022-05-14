@@ -9,9 +9,9 @@ export default function HttpService() {
     };
 
     return {
-        GET: function (page: string) {
-            console.log(page)
-            return Axios.get(`${process.env.REACT_APP_BASE_URL}brands/apple-phones-48?page=${page}`, {
+        GET: function (url: string) {
+            console.log(url)
+            return Axios.get(url, {
                 headers,
             })
                 .then((response) => {
