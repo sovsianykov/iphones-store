@@ -11,11 +11,12 @@ import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {FunctionComponent, memo} from "react";
 import {Phone} from "./models";
-import {AddShoppingCart, PhoneIphone} from "@mui/icons-material";
+import {AddShoppingCart, PhoneIphone, ReadMore} from "@mui/icons-material";
 import {Box, Typography} from "@mui/material";
 import {makeStyles} from "@mui/styles";
 import bg from "../../../assets/img/carbon_fibre.webp";
 import theme from "../../../constants/theme";
+import {Link} from "react-router-dom";
 
 
 
@@ -33,6 +34,10 @@ const useStyles = makeStyles(() =>({
     },
 }))
 
+interface State {
+    from: string;
+    detail: string;
+}
 
  const PhoneCard:FunctionComponent<PhoneCardProps> = ({phone}) => {
  const classes = useStyles()
@@ -52,6 +57,9 @@ const useStyles = makeStyles(() =>({
                 <IconButton aria-label="share">
                     <AddShoppingCart />
                 </IconButton>
+                <Link to={`${phone.phone_name.trim()}`} state={{ from:'phone', detail: phone.detail}}>
+                    read more
+                </Link>
             </CardActions>
         </Card>
     );

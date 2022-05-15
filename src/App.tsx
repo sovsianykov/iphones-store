@@ -1,24 +1,22 @@
 import React from 'react';
+import { useFetch } from './hooks/useFetch';
+import { useAppSelector } from './hooks/redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { fetchPhones } from './store/thunk';
+import { fetchPhoneDetail } from './pages/Detail/store/thunks';
+import Routing from './Routing/Routing';
 import Navbar from "./components/Navbar/Navbar";
-import {useFetch} from "./hooks/useFetch";
-import {useAppSelector} from "./hooks/redux";
-import Home from "./pages/Home/Home";
-import { BrowserRouter as Router } from "react-router-dom"
-import {fetchPhones} from "./store/thunk";
-import {fetchPhoneDetail} from "./pages/Detail/store/thunks";
-
-
 
 function App() {
-    useFetch('1',fetchPhones)
-    useFetch('https://api-mobilespecs.azharimm.site/v2/apple_iphone_se_(2022)-11410',fetchPhoneDetail)
-    const {phones} = useAppSelector(state => state.phones.data)
+  useFetch('1', fetchPhones);
 
-    console.log(phones)
+  const { phones } = useAppSelector((state) => state.phones.data);
+
+  console.log(phones);
   return (
-    <Router >
-      <Navbar/>
-        <Home/>
+    <Router>
+        <Navbar/>
+      <Routing />
     </Router>
   );
 }

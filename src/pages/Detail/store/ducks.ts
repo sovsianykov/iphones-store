@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {fetchPhoneDetail} from "./thunks";
 import {PhoneDetailState} from "../models";
+import {initialData} from "../models";
 
 const initialState: PhoneDetailState = {
     status: false,
-    data: {},
+    data: initialData,
     loading: false,
     error: '',
 };
