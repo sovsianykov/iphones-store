@@ -14,7 +14,7 @@ const Specifications: FunctionComponent<SpecificationsProps> = ({
         {specification.title}
       </Typography>
       <Grid container>
-        <Box borderBottom={2} minHeight={200} width="100%" p={1}>
+        <Box borderBottom={1} minHeight={100} width="100%" p={1}>
           {specification.specs.map((s) => (
             <Grid item xs key={s.key} alignSelf="flex-start">
               <Typography variant="body2" mt={1}>

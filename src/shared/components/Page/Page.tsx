@@ -12,7 +12,7 @@ export interface PageProps {
 const useStyles = makeStyles(() => ({
   root: {
     width: '100%',
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

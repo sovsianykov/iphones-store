@@ -1,8 +1,8 @@
 import React, { FunctionComponent, memo } from 'react';
 import Page from '../../shared/components/Page/Page';
-import {Box, CircularProgress, Grid, Paper} from '@mui/material';
+import { CircularProgress, Grid, Paper, Typography} from '@mui/material';
 import Specifications from './Specifications';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { fetchPhoneDetail } from './store/thunks';
 import { useAppSelector } from '../../hooks/redux';
@@ -10,24 +10,13 @@ import { phoneDetailSelector } from './store/selectors';
 import {makeStyles} from "@mui/styles";
 import theme from "../../constants/theme";
 import Avatar from "@mui/material/Avatar";
-// interface DetailProps {
-//     phoneData?: PhoneDetailData
-// }
+import ImageBlock from "./ImageBlock";
 
 const useStyles = makeStyles(() =>({
   root: {
     width: 1100,
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
   },
-  imgWrapper: {
-    width: 200,
-    height:300,
-    overflow:"hidden"
-  },
-  picture: {
-    display:"block",
-    width:'100%',
-  }
 }))
 
 
@@ -44,7 +33,6 @@ const Detail: FunctionComponent = () => {
   const state = location.state as State;
   useFetch(state.detail, fetchPhoneDetail);
   const {
-    brand,
     dimension,
     os,
     thumbnail,
@@ -60,15 +48,13 @@ const Detail: FunctionComponent = () => {
     <Page title={phone_name}>
       { !loading ? <CircularProgress/> :  <Paper className={classes.root}>
         <Avatar src={thumbnail}/>
-        <Grid container >
-          {phone_images.map(img=>(
-              <Grid item xs={12} md={3} key={img} display='flex' justifyContent='space-around'>
-                <Box className={classes.imgWrapper}>
-                  <img src={img} alt={img} className={classes.picture}/>
-                </Box>
-              </Grid>
-          ))}
-        </Grid>
+        <Typography variant='h5' align='center' mt={1} mb={1}> {phone_name}</Typography>
+        <Typography variant='subtitle2' align='center' mt={1} mb={2}>{release_date}</Typography>
+        <ImageBlock images={phone_images}/>
+        <Typography variant='h6'  mt={2}> {storage}</Typography>
+        <Typography variant='body2'  mt={1}> {dimension}</Typography>
+        <Typography variant='body2'  mt={1} mb={3}> {os}</Typography>
+
         <Grid container direction='column'>
           {specifications.map((s) => (
               <Grid item xs key={s.title}>
