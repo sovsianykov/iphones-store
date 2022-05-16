@@ -16,12 +16,12 @@ const phoneDetailSlice = createSlice({
     reducers: {},
     extraReducers: (builder) =>{
         builder.addCase(fetchPhoneDetail.pending,(state)=>{
-            state.loading = true;
+            state.loading = false;
 
         })
         builder.addCase(fetchPhoneDetail.fulfilled,(state,action)=>{
             state.status = true
-            state.loading = false
+            state.loading = true
             state.data = action.payload
         })
         builder.addCase(fetchPhoneDetail.rejected,(state)=>{

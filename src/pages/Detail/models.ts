@@ -1,6 +1,6 @@
 export interface Specification {
   title: string;
-  specs: { key: string; val: Array<string> };
+  specs: { key: string; val: Array<string> }[];
 }
 export interface PhoneDetailData {
   brand: string;
@@ -22,7 +22,7 @@ export const initialData = {
   dimension: '',
   os: '',
   storage: '',
-  specifications: [{ title: '', specs: { key: '', val: [''] } }],
+  specifications: [{ title: '', specs: [{ key: '', val: [''] }] }],
 };
 
 export interface PhoneDetailState {

@@ -12,6 +12,7 @@ import {makeStyles} from "@mui/styles";
 import { Link } from "react-router-dom";
 import DrawerComponent from "./Drawer";
 import theme from "../../constants/theme";
+import {AppRoutes} from "../../AppRoutes/AppRoutes";
 
 const useStyles = makeStyles(() => ({
     navlinks: {
@@ -48,9 +49,11 @@ function Navbar() {
         <AppBar position="fixed">
             <CssBaseline />
             <Toolbar >
-                <Typography variant="h4" className={classes.logo} color='aliceblue'>
-                    Serhii's Phones
-                </Typography>
+               <Link to={AppRoutes.Home}>
+                   <Typography variant="h6" className={classes.logo} color='aliceblue'>
+                       Serhii's Phones
+                   </Typography>
+               </Link>
                 {isMobile ? (
                     <DrawerComponent />
                 ) : (

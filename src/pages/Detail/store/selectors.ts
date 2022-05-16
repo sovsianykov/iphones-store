@@ -3,7 +3,8 @@ import { RootState } from '../../../store/store';
 import { PhoneDetailData, Specification } from '../models';
 
 export const phoneDetailSelector = createSelector(
-  (state: RootState) => state.phoneDetail.data,
+  [(state: RootState) => state.phoneDetail.data,
+      (state: RootState) => state.phoneDetail],
   ({
     brand,
     dimension,
@@ -14,7 +15,7 @@ export const phoneDetailSelector = createSelector(
     release_date,
     specifications,
     storage,
-  }) => {
+  },loading) => {
     return {
         brand,
         dimension,
@@ -25,6 +26,7 @@ export const phoneDetailSelector = createSelector(
         release_date,
         specifications,
         storage,
+        loading
     };
   }
 );
