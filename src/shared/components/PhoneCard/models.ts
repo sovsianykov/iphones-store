@@ -4,5 +4,4 @@ export interface Phone {
     slug: string;
     image: string;
     detail: string;
-
 }

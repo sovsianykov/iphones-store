@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Phone } from '../PhoneCard/models';
-import { Box, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import PhoneCard from '../PhoneCard/PhoneCard';
 
 export interface MainGridProps {

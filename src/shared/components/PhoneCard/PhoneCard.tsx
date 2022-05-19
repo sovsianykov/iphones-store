@@ -1,22 +1,17 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
-import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
-import { red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import {FunctionComponent, memo} from "react";
+import {FunctionComponent, memo, useCallback} from "react";
 import {Phone} from "./models";
-import {AddShoppingCart, PhoneIphone, ReadMore} from "@mui/icons-material";
+import { Remove} from "@mui/icons-material";
 import {Box, Typography} from "@mui/material";
 import {makeStyles} from "@mui/styles";
-import bg from "../../../assets/img/carbon_fibre.webp";
 import theme from "../../../constants/theme";
 import {Link} from "react-router-dom";
+import {useAppDispatch} from "../../../hooks/redux";
+import { addToWishList, removeFromWishList} from "../../../store/ducks";
 
 
 
@@ -34,14 +29,16 @@ const useStyles = makeStyles(() =>({
     },
 }))
 
-interface State {
-    from: string;
-    detail: string;
-}
 
  const PhoneCard:FunctionComponent<PhoneCardProps> = ({phone}) => {
  const classes = useStyles()
-
+   const dispatch = useAppDispatch()
+   const  onAddToWishList = useCallback(() =>{
+       dispatch(addToWishList(phone))
+   },[dispatch, phone])
+     const  onRemoveFromWishList = useCallback(() =>{
+         dispatch(removeFromWishList(phone.phone_name))
+     },[dispatch, phone])
     return (
         <Card className={classes.root} >
           <Typography variant='h6'>
@@ -51,11 +48,11 @@ interface State {
                  <img src={phone.image} width='100%' alt='hike'/>
              </Box>
             <CardActions >
-                <IconButton aria-label="add to favorites" color='error'>
+                <IconButton aria-label="add to favorites" color='error' onClick={onAddToWishList}>
                     <FavoriteIcon />
                 </IconButton>
-                <IconButton aria-label="share">
-                    <AddShoppingCart />
+                <IconButton aria-label="share"  onClick={onRemoveFromWishList}>
+                    <Remove />
                 </IconButton>
                 <Link to={`${phone.phone_name.trim()}`} state={{ from:'phone', detail: phone.detail}}>
                     read more

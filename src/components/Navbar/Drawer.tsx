@@ -10,6 +10,7 @@ import {makeStyles} from "@mui/styles";
 
 import { Link } from "react-router-dom";
 import {Menu} from "@mui/icons-material";
+import {AppRoutes} from "../../AppRoutes/AppRoutes";
 
 const useStyles = makeStyles(()=>({
     link:{
@@ -34,22 +35,22 @@ function DrawerComponent() {
                 <List>
                     <ListItem onClick={() => setOpenDrawer(false)}>
                         <ListItemText>
-                            <Link to="/">Home</Link>
+                            <Link to={AppRoutes.Home} className={classes.link}>Home</Link>
                         </ListItemText>
                     </ListItem>
                     <ListItem onClick={() => setOpenDrawer(false)}>
                         <ListItemText>
-                            <Link to="/about">About</Link>
+                            <Link to="/about" className={classes.link}>About</Link>
                         </ListItemText>
                     </ListItem>
                     <ListItem onClick={() => setOpenDrawer(false)}>
                         <ListItemText>
-                            <Link to="/contact">Contact</Link>
+                            <Link to="/contact" className={classes.link}>Contact</Link>
                         </ListItemText>
                     </ListItem>
                     <ListItem onClick={() => setOpenDrawer(false)}>
                         <ListItemText>
-                            <Link to="/about">Faq</Link>
+                            <Link to="/about" className={classes.link}>Faq</Link>
                         </ListItemText>
                     </ListItem>
                 </List>

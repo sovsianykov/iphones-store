@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import DrawerComponent from "./Drawer";
 import theme from "../../constants/theme";
 import {AppRoutes} from "../../AppRoutes/AppRoutes";
+import Search from "../../shared/components/Search/Search";
 
 const useStyles = makeStyles(() => ({
     navlinks: {
@@ -33,9 +34,11 @@ const useStyles = makeStyles(() => ({
         color: "white",
         fontSize: "20px",
         marginLeft: theme.spacing(20),
+        borderBottom: "1px solid transparent",
+        transition:'0.15s ease-in-out',
         "&:hover": {
             color: "yellow",
-            borderBottom: "1px solid white",
+            borderBottom: "1px solid yellow",
         },
     },
 }));
@@ -58,18 +61,13 @@ function Navbar() {
                     <DrawerComponent />
                 ) : (
                     <div className={classes.navlinks}>
-                        <Link to="/" className={classes.link}>
+                        <Link to={AppRoutes.Home} className={classes.link}>
                             Home
                         </Link>
-                        <Link to="/about" className={classes.link}>
-                            About
+                        <Link to={AppRoutes.WishList} className={classes.link}>
+                            Wishlist
                         </Link>
-                        <Link to="/contact" className={classes.link}>
-                            Contact
-                        </Link>
-                        <Link to="/faq" className={classes.link}>
-                            FAQ
-                        </Link>
+                        <Search/>
                     </div>
                 )}
             </Toolbar>

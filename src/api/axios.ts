@@ -10,7 +10,6 @@ export default function HttpService() {
 
     return {
         GET: function (url: string) {
-            console.log(url)
             return Axios.get(url, {
                 headers,
             })

@@ -1,6 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { RootState } from '../../../store/store';
-import { PhoneDetailData, Specification } from '../models';
 
 export const phoneDetailSelector = createSelector(
   [(state: RootState) => state.phoneDetail.data,
