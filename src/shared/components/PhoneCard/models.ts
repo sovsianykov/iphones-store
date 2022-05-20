@@ -4,4 +4,7 @@ export interface Phone {
     slug: string;
     image: string;
     detail: string;
+    id?: string | number;
+    wished?: boolean;
 }
+

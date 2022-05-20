@@ -18,6 +18,7 @@ const phonesSlice = createSlice({
   reducers: {
     addToWishList: (state, { payload }) => {
       const currentState = current(state);
+      payload.wished = true;
       state.wishList = currentState.wishList.concat([payload]);
     },
     removeFromWishList: (state, { payload }) => {
