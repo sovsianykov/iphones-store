@@ -5,7 +5,7 @@ import bg from '../../assets/img/carbon_fibre.webp';
 import { useAppSelector } from '../../hooks/redux';
 import MainGrid from '../../shared/components/MainGrid/MainGrid';
 import Page from '../../shared/components/Page/Page';
-import {filteredPhonesSelector} from "../../store/selectors";
+import { filteredPhonesSelector } from '../../store/selectors';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -15,10 +15,9 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Home: FunctionComponent = () => {
-
   const classes = useStyles();
 
-  const {  filteredPhones } = useAppSelector(filteredPhonesSelector);
+  const { filteredPhones } = useAppSelector(filteredPhonesSelector);
   return (
     <Box role="presentation" className={classes.root} mt={4}>
       <Page title="Choose your style">

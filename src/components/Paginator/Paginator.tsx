@@ -7,7 +7,7 @@ const Paginator = () => {
   const dispatch = useAppDispatch();
   const onPageChange = useCallback((e, value) => {
     dispatch(fetchPhones(value));
-  }, []);
+  }, [dispatch]);
   return (
     <Box sx={{ background: '#e0dddd', padding: 0.5, borderRadius: '5px' }}>
       <Pagination count={3} onChange={onPageChange}  variant='text'  color={'secondary'} />
