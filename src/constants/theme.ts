@@ -12,10 +12,10 @@ const theme = createTheme({
             contrastText: "#222432",
         },
         secondary: {
-            main: "#98878F",
-            light: "#b6a1ab",
-            dark: "#695b61",
-            contrastText: "#5a4f57",
+            main: "#494E6B",
+            light: "#d1d1d1",
+            dark: "#7d85b3",
+            contrastText: "#f8f7f7",
         },
         success: {
             main: "#985E6D",
@@ -41,7 +41,7 @@ const theme = createTheme({
 
 
     typography: {
-        fontFamily: 'Value Sans Pro, sans-serif'
+        fontFamily: 'Rubik-regular, sans-serif'
     },
 });
 

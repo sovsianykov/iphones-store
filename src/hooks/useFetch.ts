@@ -1,10 +1,13 @@
-import {useAppDispatch} from "./redux";
-import {useEffect} from "react";
+import { useAppDispatch } from './redux';
+import { useEffect } from 'react';
+import { fetchPhones } from '../store/thunk';
 
+type CallbackType = typeof fetchPhones;
 
-export const useFetch = (url:string,callback:any) =>{
-    const dispatch = useAppDispatch();
-    useEffect(() => {
-       dispatch(callback(url))
-    },[dispatch,url,callback])
-}
+export const useFetch = (page: string, callback: CallbackType) => {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(callback(page));
+  }, [dispatch, page, callback]);
+};
+

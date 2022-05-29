@@ -1,3 +1,6 @@
+@font-face { font-family: Rubik-regular;
+  src: url('./assets/fonts/Rubik-Regular.ttf'); }
+
 body {
   margin: 0;
   padding: 0;
@@ -13,10 +16,11 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family:Rubik-regular, sans-serif ;
 }
 a {
   text-decoration: none;
   color: darkblue;
+  font-family:Rubik-regular, sans-serif ;
+
 }

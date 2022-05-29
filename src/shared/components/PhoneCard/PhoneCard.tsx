@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { FunctionComponent, memo, useCallback } from 'react';
 import { Phone } from './models';
-import { Remove } from '@mui/icons-material';
+import { RemoveShoppingCartOutlined} from '@mui/icons-material';
 import { Box, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import theme from '../../../constants/theme';
@@ -19,12 +19,15 @@ export interface PhoneCardProps {
 const useStyles = makeStyles<Pick<PhoneCardProps, 'phone'>, PhoneCardProps>(
   () => ({
     root: {
-      width: '100%',
+      width: 260,
       height: 364,
       padding: theme.spacing(2),
       background: ({ phone }) =>
-        phone.wished ? 'antiquewhite' : theme.palette.grey['100'],
-
+        phone.wished ? '#f5efe7' : theme.palette.grey['100'],
+      transition: ".15s ease-in-out",
+        "&:hover" : {
+            background:'#f5efe7'
+        }
     },
     imgWrapper: {
       width: 160,
@@ -41,7 +44,6 @@ const useStyles = makeStyles<Pick<PhoneCardProps, 'phone'>, PhoneCardProps>(
 
 const PhoneCard: FunctionComponent<PhoneCardProps> = ({ phone }) => {
   const classes = useStyles({ phone });
-  console.log(phone.wished);
   const dispatch = useAppDispatch();
   const onAddToWishList = useCallback(() => {
     dispatch(addToWishList(phone));
@@ -59,7 +61,7 @@ const PhoneCard: FunctionComponent<PhoneCardProps> = ({ phone }) => {
           className={classes.image}
         />
       </Box>
-      <CardActions>
+      <CardActions sx={{ width:"100%", display:"flex", justifyContent:"space-between"}} >
         <IconButton
           aria-label="add to favorites"
           color="error"
@@ -69,7 +71,7 @@ const PhoneCard: FunctionComponent<PhoneCardProps> = ({ phone }) => {
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share" onClick={onRemoveFromWishList}>
-          <Remove />
+            { phone.wished && <RemoveShoppingCartOutlined />}
         </IconButton>
         <Link
           to={`${phone.phone_name.trim()}`}
