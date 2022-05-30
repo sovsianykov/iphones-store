@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { Phone } from '../shared/components/PhoneCard/models';
-import { v4 as uuid} from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 
 export const filteredPhonesSelector = createSelector(
   [(state) => state.phones],
@@ -14,7 +14,7 @@ export const filteredPhonesSelector = createSelector(
            slug: phone.slug,
            image: phone.image,
            detail: phone.detail,
-           id : uuid(),
+           id : uuidv4(),
            wished: !!wishList.find((p: Phone) => p.phone_name === phone.phone_name)
        }))
 
