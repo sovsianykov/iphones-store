@@ -18,6 +18,12 @@ const useStyles = makeStyles(() =>({
         alignItems:"center",
         justifyContent:"space-between",
         padding: theme.spacing(2),
+        [theme.breakpoints.between('xs', 'md')]: {
+            marginTop: theme.spacing(5),
+            flexDirection:"column",
+            height: 130,
+
+        }
     },
     title : {
         fontSize: "25px",

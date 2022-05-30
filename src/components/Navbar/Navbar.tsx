@@ -18,7 +18,13 @@ import { useAppSelector } from '../../hooks/redux';
 import { filteredPhonesSelector } from '../../store/selectors';
 import NavigationLink from './NavigationLink';
 
-const useStyles = makeStyles(() => ({
+
+type StyleProps = {
+  isMobile: boolean
+}
+
+
+const useStyles = makeStyles<Pick<StyleProps, 'isMobile'>,StyleProps>(() => ({
   navLinks: {
     marginLeft: theme.spacing(5),
     display: 'flex',
@@ -27,7 +33,7 @@ const useStyles = makeStyles(() => ({
   logo: {
     flexGrow: '1',
     fontFamily: 'Rubik-regular, sans-serif',
-    width: 400,
+    width: ({isMobile}) => isMobile ? 300 : 400,
     cursor: 'pointer',
     letterSpacing: '0.2rem',
   },
@@ -49,16 +55,16 @@ const useStyles = makeStyles(() => ({
 }));
 
 function Navbar() {
-  const classes = useStyles();
   const theme = useTheme();
   const { wishList } = useAppSelector(filteredPhonesSelector);
 
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const classes = useStyles({isMobile});
 
   return (
     <AppBar position="fixed">
       <CssBaseline />
-      <Toolbar>
+      <Toolbar >
         <Link to={AppRoutes.Home}>
           <Typography variant="h6" className={classes.logo} color="aliceblue">
             Serhii's Phones

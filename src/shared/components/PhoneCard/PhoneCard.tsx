@@ -19,8 +19,9 @@ export interface PhoneCardProps {
 const useStyles = makeStyles<Pick<PhoneCardProps, 'phone'>, PhoneCardProps>(
   () => ({
     root: {
-      width: 260,
-      height: 364,
+      width: "100%",
+      height: 350,
+      margin: "0 auto",
       padding: theme.spacing(2),
       background: ({ phone }) =>
         phone.wished ? '#f5efe7' : theme.palette.grey['100'],
@@ -64,8 +65,8 @@ const PhoneCard: FunctionComponent<PhoneCardProps> = ({ phone }) => {
       <CardActions sx={{ width:"100%", display:"flex", justifyContent:"space-between"}} >
         <IconButton
           aria-label="add to favorites"
-          color="error"
-          disabled={phone.wished}
+          disabled={phone.wished }
+        sx= {{ color :  phone.wished ? "red!important" : "#CCC" }}
           onClick={onAddToWishList}
         >
           <FavoriteIcon />

@@ -11,11 +11,17 @@ import {makeStyles} from "@mui/styles";
 import { Link } from "react-router-dom";
 import {Menu} from "@mui/icons-material";
 import {AppRoutes} from "../../AppRoutes/AppRoutes";
+import theme from "../../constants/theme";
 
 const useStyles = makeStyles(()=>({
+    root : {
+        background: theme.palette.primary.main,
+        height: "100vh"
+    },
+
     link:{
         textDecoration:"none",
-        color: "blue",
+        color: "yellow",
         fontSize: "20px",
     },
     icon:{
@@ -29,10 +35,11 @@ function DrawerComponent() {
     return (
         <>
             <Drawer
+
                 open={openDrawer}
                 onClose={() => setOpenDrawer(false)}
             >
-                <List>
+                <List className={classes.root}>
                     <ListItem onClick={() => setOpenDrawer(false)}>
                         <ListItemText>
                             <Link to={AppRoutes.Home} className={classes.link}>Home</Link>
@@ -40,23 +47,13 @@ function DrawerComponent() {
                     </ListItem>
                     <ListItem onClick={() => setOpenDrawer(false)}>
                         <ListItemText>
-                            <Link to="/about" className={classes.link}>About</Link>
-                        </ListItemText>
-                    </ListItem>
-                    <ListItem onClick={() => setOpenDrawer(false)}>
-                        <ListItemText>
-                            <Link to="/contact" className={classes.link}>Contact</Link>
-                        </ListItemText>
-                    </ListItem>
-                    <ListItem onClick={() => setOpenDrawer(false)}>
-                        <ListItemText>
-                            <Link to="/about" className={classes.link}>Faq</Link>
+                            <Link to={AppRoutes.WishList} className={classes.link}>Wishlist</Link>
                         </ListItemText>
                     </ListItem>
                 </List>
             </Drawer>
-            <IconButton onClick={() => setOpenDrawer(!openDrawer)}>
-                <Menu />
+            <IconButton  onClick={() => setOpenDrawer(!openDrawer)}>
+                <Menu  sx={{ color: "#FFF"}}/>
             </IconButton>
         </>
     );
