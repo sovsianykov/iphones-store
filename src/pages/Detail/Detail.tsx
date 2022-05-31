@@ -14,7 +14,7 @@ import ImageBlock from "./ImageBlock";
 
 const useStyles = makeStyles(() =>({
   root: {
-    width: 1100,
+    maxWidth: 1100,
     padding: theme.spacing(4),
   },
 }))
@@ -57,7 +57,7 @@ const Detail: FunctionComponent = () => {
 
         <Grid container direction='column'>
           {specifications.map((s) => (
-              <Grid item xs key={s.title}>
+              <Grid item xs={12} key={s.title}>
                 <Specifications specification={s}/>
               </Grid>
           ))}

@@ -7,7 +7,8 @@ import httpService from '../../../api/axios'
 export const fetchPhoneDetail = createAsyncThunk(
     'phoneDetail/fetch',
     async (url:string) => {
-        const response = await httpService().GET(url)
+      const uri = `${url.substring(0, 4)}s${url.substring(4)}`
+        const response = await httpService().GET(uri)
         return response.data.data
     }
 )

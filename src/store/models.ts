@@ -11,7 +11,7 @@ export const initialData = {
       slug: 'apple_iphone_se_(2022)-11410',
       image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-se-2022.jpg',
       detail:
-        'http://api-mobilespecs.azharimm.site/v2/apple_iphone_se_(2022)-11410',
+        'https://api-mobilespecs.azharimm.site/v2/apple_iphone_se_(2022)-11410',
     },
   ],
 };
