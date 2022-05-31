@@ -1,7 +1,8 @@
-import { initialData, InitialState } from './models';
-import { createSlice } from '@reduxjs/toolkit';
+import { Data, initialData, InitialState } from "./models";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchPhones } from './thunk';
 import { current } from '@reduxjs/toolkit';
+import { Phone } from "../shared/components/PhoneCard/models";
 
 const initialState: InitialState = {
   status: false,
@@ -16,24 +17,24 @@ const phonesSlice = createSlice({
   name: 'phones',
   initialState,
   reducers: {
-    addToWishList: (state, { payload }) => {
+    addToWishList: (state, action:PayloadAction<Phone>) => {
       const currentState = current(state);
-      payload.wished = true;
-      state.wishList = currentState.wishList.concat([payload]);
+      action.payload.wished = true;
+      state.wishList = currentState.wishList.concat([action.payload]);
     },
-    removeFromWishList: (state, { payload }) => {
+    removeFromWishList: (state, action:PayloadAction<string>) => {
       const currentState = current(state);
-      state.wishList = currentState.wishList.filter(phone => phone.phone_name !== payload);
+      state.wishList = currentState.wishList.filter(phone => phone.phone_name !== action.payload);
     },
-    filterPhones: (state, { payload }) => {
-      state.searchQuery = payload
+    filterPhones: (state,  action:PayloadAction<string>) => {
+      state.searchQuery = action.payload
     },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchPhones.pending, (state) => {
       state.loading = true;
     });
-    builder.addCase(fetchPhones.fulfilled, (state, action) => {
+    builder.addCase(fetchPhones.fulfilled, (state, action:PayloadAction<Data>) => {
       state.loading = false;
       state.data = action.payload;
     });

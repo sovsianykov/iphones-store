@@ -7,6 +7,7 @@ import Title from './Title';
 export interface PageProps {
   children: JSX.Element | JSX.Element[];
   title: string;
+  withPagination?:JSX.Element   ;
 }
 
 const useStyles = makeStyles(() => ({
@@ -19,12 +20,14 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Page: FunctionComponent<PageProps> = ({ children, title }) => {
+const Page: FunctionComponent<PageProps> = ({ children, title,withPagination }) => {
   const classes = useStyles();
 
   return (
     <Container >
-      <Title title={title} />
+      <Title title={title} >
+        {withPagination}
+      </Title>
       <Box className={classes.root}>{children}</Box>
     </Container>
   );
