@@ -11,8 +11,8 @@ export interface TitleProps {
 const useStyles = makeStyles(() => ({
   root: {
     width: '100%',
-    height: 40,
-    marginTop: theme.spacing(12),
+    height: 30,
+    marginTop: theme.spacing(10),
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',

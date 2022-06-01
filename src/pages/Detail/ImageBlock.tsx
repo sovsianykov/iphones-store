@@ -8,8 +8,9 @@ interface ImageBlockProps {
 const useStyles = makeStyles(() => ({
   imgWrapper: {
     width: 200,
-    height: 300,
     overflow: 'hidden',
+    marginBottom: 40,
+    borderRadius: "3px",
   },
   picture: {
     display: 'block',

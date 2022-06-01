@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { FunctionComponent, memo, useCallback } from 'react';
 import { Phone } from './models';
-import { RemoveShoppingCartOutlined} from '@mui/icons-material';
+import { RemoveShoppingCartOutlined } from '@mui/icons-material';
 import { Box, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import theme from '../../../constants/theme';
@@ -19,22 +19,23 @@ export interface PhoneCardProps {
 const useStyles = makeStyles<Pick<PhoneCardProps, 'phone'>, PhoneCardProps>(
   () => ({
     root: {
-      width: "100%",
-      height: 350,
-      margin: "0 auto",
+      width: '99%',
+      height: 330,
+      alignSelf: 'center',
+      margin: '0 auto',
       padding: theme.spacing(2),
-      display:"flex",
-      flexDirection:"column",
-      background: ({ phone }) =>
-        phone.wished ? '#f5efe7' : theme.palette.background.paper,
-      transition: ".15s ease-in-out",
-        "&:hover" : {
-            background:'#f5efe7'
-        }
+      display: 'flex',
+      flexDirection: 'column',
+      borderRadius: '5px',
+      background: theme.palette.background.paper,
+      transition: '.3s ease-in-out',
+      '&:hover': {
+        width: '100%',
+      },
     },
     imgWrapper: {
       width: 160,
-      alignSelf:"center",
+      alignSelf: 'center',
       height: 212,
       overflow: 'hidden',
       borderRadius: '10px',
@@ -57,25 +58,25 @@ const PhoneCard: FunctionComponent<PhoneCardProps> = ({ phone }) => {
   }, [dispatch, phone]);
   return (
     <Box className={classes.root}>
-      <Typography variant="subtitle1" height={40}>{phone.phone_name}</Typography>
+      <Typography variant="subtitle1" height={40} letterSpacing={'0.1rem'}>
+        {phone.phone_name}
+      </Typography>
       <Box className={classes.imgWrapper}>
-        <img
-          src={phone.image}
-          alt="hike"
-          className={classes.image}
-        />
+        <img src={phone.image} alt="hike" className={classes.image} />
       </Box>
-      <CardActions sx={{ width:"100%", display:"flex", justifyContent:"space-between"}} >
+      <CardActions
+        sx={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}
+      >
         <IconButton
           aria-label="add to favorites"
-          disabled={phone.wished }
-        sx= {{ color :  phone.wished ? "red!important" : "#6767a0" }}
+          disabled={phone.wished}
+          sx={{ color: phone.wished ? 'red!important' : '#6767a0' }}
           onClick={onAddToWishList}
         >
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share" onClick={onRemoveFromWishList}>
-            { phone.wished && <RemoveShoppingCartOutlined />}
+          {phone.wished && <RemoveShoppingCartOutlined />}
         </IconButton>
         <Link
           to={`${phone.phone_name.trim()}`}

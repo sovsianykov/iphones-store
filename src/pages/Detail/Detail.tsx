@@ -51,7 +51,7 @@ const Detail: FunctionComponent = () => {
         <Typography variant='h5' align='center' mt={1} mb={1}> {phone_name}</Typography>
         <Typography variant='subtitle2' align='center' mt={1} mb={2}>{release_date}</Typography>
         <ImageBlock images={phone_images}/>
-        <Typography variant='h6'  mt={2}> {storage}</Typography>
+        <Typography variant='h6' > {storage}</Typography>
         <Typography variant='body2'  mt={1}> {dimension}</Typography>
         <Typography variant='body2'  mt={1} mb={3}> {os}</Typography>
 

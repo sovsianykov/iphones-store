@@ -13,11 +13,8 @@ const useStyles = makeStyles(() => ({
         background:'whitesmoke',
         marginLeft: 50,
     },
-
     textArea: {
         width: 150,
-
-
     },
     input: {
         width:150,
