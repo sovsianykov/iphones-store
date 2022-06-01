@@ -40,10 +40,11 @@ const useStyles = makeStyles<Pick<StyleProps, 'isMobile'>,StyleProps>(() => ({
   wishListNumbers: {
     width: 20,
     height: 20,
+    marginTop: theme.spacing(0.7),
     borderRadius: '50%',
     display: 'inline-flex',
     alignItems: 'center',
-    alignSelf: 'center',
+    alignSelf: 'flex-start',
     justifyContent: 'center',
     background: 'purple',
     marginLeft: 5,

@@ -23,8 +23,10 @@ const useStyles = makeStyles<Pick<PhoneCardProps, 'phone'>, PhoneCardProps>(
       height: 350,
       margin: "0 auto",
       padding: theme.spacing(2),
+      display:"flex",
+      flexDirection:"column",
       background: ({ phone }) =>
-        phone.wished ? '#f5efe7' : theme.palette.grey['100'],
+        phone.wished ? '#f5efe7' : theme.palette.background.paper,
       transition: ".15s ease-in-out",
         "&:hover" : {
             background:'#f5efe7'
@@ -32,6 +34,7 @@ const useStyles = makeStyles<Pick<PhoneCardProps, 'phone'>, PhoneCardProps>(
     },
     imgWrapper: {
       width: 160,
+      alignSelf:"center",
       height: 212,
       overflow: 'hidden',
       borderRadius: '10px',
@@ -54,7 +57,7 @@ const PhoneCard: FunctionComponent<PhoneCardProps> = ({ phone }) => {
   }, [dispatch, phone]);
   return (
     <Box className={classes.root}>
-      <Typography variant="h6">{phone.phone_name}</Typography>
+      <Typography variant="subtitle1" height={40}>{phone.phone_name}</Typography>
       <Box className={classes.imgWrapper}>
         <img
           src={phone.image}
@@ -66,7 +69,7 @@ const PhoneCard: FunctionComponent<PhoneCardProps> = ({ phone }) => {
         <IconButton
           aria-label="add to favorites"
           disabled={phone.wished }
-        sx= {{ color :  phone.wished ? "red!important" : "#CCC" }}
+        sx= {{ color :  phone.wished ? "red!important" : "#6767a0" }}
           onClick={onAddToWishList}
         >
           <FavoriteIcon />
