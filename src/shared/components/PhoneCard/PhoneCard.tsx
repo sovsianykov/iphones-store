@@ -19,7 +19,7 @@ export interface PhoneCardProps {
 const useStyles = makeStyles<Pick<PhoneCardProps, 'phone'>, PhoneCardProps>(
   () => ({
     root: {
-      width: '99%',
+      width: '100%',
       height: 330,
       alignSelf: 'center',
       margin: '0 auto',
@@ -29,9 +29,6 @@ const useStyles = makeStyles<Pick<PhoneCardProps, 'phone'>, PhoneCardProps>(
       borderRadius: '5px',
       background: theme.palette.background.paper,
       transition: '.15s ease-in-out',
-      '&:hover': {
-        width: '100%',
-      },
     },
     imgWrapper: {
       width: 160,
