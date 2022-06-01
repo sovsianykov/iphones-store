@@ -28,7 +28,7 @@ const useStyles = makeStyles<Pick<PhoneCardProps, 'phone'>, PhoneCardProps>(
       flexDirection: 'column',
       borderRadius: '5px',
       background: theme.palette.background.paper,
-      transition: '.3s ease-in-out',
+      transition: '.15s ease-in-out',
       '&:hover': {
         width: '100%',
       },
