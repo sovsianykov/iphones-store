@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Box, Pagination } from '@mui/material';
 import { fetchPhones } from '../../store/thunk';
-import { useAppDispatch } from '../../hooks/redux';
+import { useAppDispatch } from '../../hooks/reduxHoocks';
 
 const Paginator = () => {
   const dispatch = useAppDispatch();

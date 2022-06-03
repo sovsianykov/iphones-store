@@ -1,7 +1,7 @@
 
 import {createAsyncThunk} from "@reduxjs/toolkit";
 
-import httpService from '../../../api/axios'
+import httpService from '../../../api/httpService'
 
 
 export const fetchPhoneDetail = createAsyncThunk(

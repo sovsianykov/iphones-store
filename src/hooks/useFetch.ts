@@ -1,4 +1,4 @@
-import { useAppDispatch } from './redux';
+import { useAppDispatch } from './reduxHoocks';
 import { useEffect } from 'react';
 import { fetchPhones } from '../store/thunk';
 

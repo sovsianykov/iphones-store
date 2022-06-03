@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
-import theme from '../constants/theme';
+import theme from '../../constants/theme';
 import {
    Box, Container,
   CssBaseline,
@@ -8,8 +8,8 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import { AppRoutes } from '../AppRoutes/AppRoutes';
-import NavigationLink from './Navbar/NavigationLink';
+import { AppRoutes } from '../../AppRoutes/AppRoutes';
+import NavigationLink from '../Navbar/NavigationLink';
 
 const useStyles = makeStyles(() => ({
   root: {

@@ -5,7 +5,7 @@ import Specifications from './Specifications';
 import { useLocation } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
 import { fetchPhoneDetail } from './store/thunks';
-import { useAppSelector } from '../../hooks/redux';
+import { useAppSelector } from '../../hooks/reduxHoocks';
 import { phoneDetailSelector } from './store/selectors';
 import {makeStyles} from "@mui/styles";
 import theme from "../../constants/theme";
@@ -45,7 +45,7 @@ const Detail: FunctionComponent = () => {
   } = useAppSelector(phoneDetailSelector);
 
   return (
-    <Page title={phone_name}>
+    <Page title={phone_name} >
       { !loading ? <CircularProgress/> :  <Paper className={classes.root}>
         <Avatar src={thumbnail}/>
         <Typography variant='h5' align='center' mt={1} mb={1}> {phone_name}</Typography>

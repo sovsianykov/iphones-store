@@ -1,7 +1,7 @@
 import React, {FunctionComponent, memo, useCallback, useEffect, useState} from 'react';
 import {Box, FormGroup, TextField} from "@mui/material";
 import {makeStyles} from "@mui/styles";
-import {useAppDispatch } from "../../../hooks/redux";
+import {useAppDispatch } from "../../../hooks/reduxHoocks";
 import {filterPhones} from "../../../store/ducks";
 
 

@@ -7,7 +7,7 @@ import Title from './Title';
 export interface PageProps {
   children: JSX.Element | JSX.Element[];
   title: string;
-  withPagination?:JSX.Element   ;
+  withPagination?:JSX.Element;
 }
 
 const useStyles = makeStyles(() => ({

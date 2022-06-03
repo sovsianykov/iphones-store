@@ -2,7 +2,7 @@ import React, { FunctionComponent, memo } from "react";
 import { makeStyles } from '@mui/styles';
 import { Box } from '@mui/material';
 import bg from '../../assets/img/carbon_fibre.webp';
-import { useAppSelector } from '../../hooks/redux';
+import { useAppSelector } from '../../hooks/reduxHoocks';
 import MainGrid from '../../shared/components/MainGrid/MainGrid';
 import Page from '../../shared/components/Page/Page';
 import { filteredPhonesSelector } from '../../store/selectors';

@@ -1,6 +1,6 @@
 export enum AppRoutes {
     Home='/',
-    Cart="/cart",
     WishList="/wishlist",
-    Detail = "/:id"
+    Detail = "/:id" ,
+    WishedPhoneDetail = "/wishlist/:id"
 }

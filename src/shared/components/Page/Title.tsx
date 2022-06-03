@@ -1,7 +1,8 @@
 import React, { FunctionComponent, memo } from 'react';
 import { makeStyles } from '@mui/styles';
 import theme from '../../../constants/theme';
-import { Box } from '@mui/material';
+import { Box, useMediaQuery, useTheme } from "@mui/material";
+import HistoryButton from '../HistoryButton/HistoryButton';
 
 export interface TitleProps {
   title: string;
@@ -34,10 +35,14 @@ const useStyles = makeStyles(() => ({
 const Title: FunctionComponent<TitleProps> = ({ title, children }) => {
   const classes = useStyles();
 
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
     <Box className={classes.root}>
       <h1 className={classes.title}>{title}</h1>
       {children}
+      { !isMobile && <HistoryButton />}
     </Box>
   );
 };

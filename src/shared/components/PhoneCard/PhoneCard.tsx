@@ -9,7 +9,7 @@ import { Box, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import theme from '../../../constants/theme';
 import { Link } from 'react-router-dom';
-import { useAppDispatch } from '../../../hooks/redux';
+import { useAppDispatch } from '../../../hooks/reduxHoocks';
 import { addToWishList, removeFromWishList } from '../../../store/ducks';
 
 export interface PhoneCardProps {

@@ -14,7 +14,7 @@ import DrawerComponent from './Drawer';
 import theme from '../../constants/theme';
 import { AppRoutes } from '../../AppRoutes/AppRoutes';
 import Search from '../../shared/components/Search/Search';
-import { useAppSelector } from '../../hooks/redux';
+import { useAppSelector } from '../../hooks/reduxHoocks';
 import { filteredPhonesSelector } from '../../store/selectors';
 import NavigationLink from './NavigationLink';
 
@@ -56,9 +56,8 @@ const useStyles = makeStyles<Pick<StyleProps, 'isMobile'>,StyleProps>(() => ({
 }));
 
 function Navbar() {
-  const theme = useTheme();
   const { wishList } = useAppSelector(filteredPhonesSelector);
-
+  const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const classes = useStyles({isMobile});
 
